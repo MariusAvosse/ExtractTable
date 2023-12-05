@@ -1,0 +1,22 @@
+
+before_script:
+  - apt-get update -qq
+  - apt-get install ffmpeg libsm6 libxext6  -y
+  - apt-get install -y python-dev python3-pip
+  - pip install opencv-python-headless
+  - apt-get -y install tesseract-ocr
+  - apt-get install -y libtesseract-dev
+  - pip install pytesseract
+  - pip install matplotlib
+
+python:
+  stage: test
+  script:   
+  - python3 code/testeur.py -d dataset_tableau/tableau_arial -a attendus/attendu_simple
+  - python3 code/testeur.py -d dataset_tableau/tableau_cn -a attendus/attendu_simple
+  - python3 code/testeur.py -d dataset_tableau/tableau_calibri -a attendus/attendu_simple
+  - python3 code/testeur.py -d dataset_tableau/tableau_lob -a attendus/attendu_simple
+  - python3 code/testeur.py -d dataset_tableau/tableau_tnr -a attendus/attendu_simple
+
+
+  

@@ -1,0 +1,25 @@
+# a thing to see how the croping of image work, usefull to keep around but the rest of the code don't need it so its gonna be destroyed at some point
+
+# Importing Image class from PIL module
+from PIL import Image
+ 
+# Opens a image in RGB mode
+im = Image.open(r"C:\Users\red\avosse-guinard-plong-2022\dataset_tableau\tableau simple\Capture.PNG")
+ 
+# Size of the image in pixels (size of original image)
+# (This is not mandatory)
+width, height = im.size
+ 
+# Setting the points for cropped image
+left =0
+top = 0
+right = width
+bottom = height
+ 
+# Cropped image of above dimension
+# (It will not change original image)
+im1 = im.crop((left, top, right, bottom))
+ 
+# Shows the image in image viewer
+im.show()
+im1.show()
